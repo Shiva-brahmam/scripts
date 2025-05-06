@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #give the input and output diretories
-in_dir="/home/angad/Vikash/rnaseq_analysis/SAM_files"
-out_dir="/home/angad/Vikash/rnaseq_analysis/SAM_files/sort_bam"
+in_dir="/home/rnaseq_analysis/SAM_files"
+out_dir="/home/rnaseq_analysis/SAM_files/sort_bam"
 
 #no.of threads 
 threads=32
