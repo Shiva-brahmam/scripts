@@ -95,8 +95,8 @@ def process_folder(folder_path, output_path):
     #df.to_csv(output_path, sep='\t', index=False)
 
 # usage
-folder_path = r'D:/Documents/RNAseq_projects/RNAseq_shreya/alignment_summary'  # Replace with your folder path
-output_path = r'D:/Documents/RNAseq_projects/RNAseq_shreya/alignment_results.xlsx'  # Replace with your desired output path and format
+folder_path = r'D:/Documents/RNAseq_projects/alignment_summary'  # Replace with your folder path
+output_path = r'D:/Documents/RNAseq_projects/alignment_results.xlsx'  # Replace with your desired output path and format
 
 process_folder(folder_path, output_path)
 
