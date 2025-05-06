@@ -26,7 +26,7 @@ mart <- useMart("plants_mart", dataset = "athaliana_eg_gene", host = "https://pl
 
 # List all attributes for Arabidopsis thaliana in Ensembl Plants
 attributes <- listAttributes(mart)
-head(attributes, 20)  # Check the first 20 attributes
+head(attributes, 20) 
 
 genes_entrez <- getBM(attributes = c("ensembl_gene_id", "entrezgene_id"), 
                       filters = "ensembl_gene_id", 
@@ -43,7 +43,7 @@ go_enrichment <- enrichGO(
   keyType       = "ENTREZID",                  # Key type
   ont           = "ALL",                       # You can specify "BP", "MF", or "CC"
   #ont           = "BP",
-  pAdjustMethod = "BH",                        # Adjust p-values for multiple testing
+  pAdjustMethod = "BH",                        
   pvalueCutoff  = 0.05,
   qvalueCutoff  = 0.05
 )
@@ -58,8 +58,8 @@ write.csv(go_enrichment_df, "UP_GO.csv")
 # Plot the top 10 GO terms, coloring by p.adjust value
 ggplot(go_enrichment_df[1:10, ], aes(x = reorder(Description, -Count), y = Count, fill = p.adjust)) +
   geom_bar(stat = "identity") +
-  coord_flip() +  # Flip coordinates for a horizontal bar plot
-  scale_fill_gradient(low = "red", high = "blue") +  # Color gradient based on p.adjust
+  coord_flip() + 
+  scale_fill_gradient(low = "red", high = "blue") + 
   xlab("GO Terms") +
   ylab("Gene Count") +
   #ggtitle("Top") +
