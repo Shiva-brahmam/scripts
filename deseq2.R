@@ -54,18 +54,3 @@ plotPCA(vsd,intgroup = "condition")
 
 #MAplot
 plotMA(res)
-
-#volcano plot
-res_dataframe <- as.data.frame(res)
-EnhancedVolcano(res_dataframe,
-                lab = rownames(res_dataframe),
-                x = 'log2FoldChange',
-                y = 'pvalue')
-
-#heatmap
-ntd <- normTransform(dds)
-select <- order(rowMeans(counts(dds,normalized=TRUE)),
-                decreasing=TRUE)[1:20]
-df <- as.data.frame(colData(dds))
-pheatmap(assay(ntd)[select,], cluster_rows=FALSE, show_rownames=T,
-         cluster_cols=FALSE, annotation_col=df)
