@@ -9,7 +9,7 @@ library(dplyr)
 library(ggrepel)
 
 #set working directory
-setwd("D:/Documents/RNAseq_projects/RNAseq_shreya/DGEA/SNNA_vs_LNNA")  #LN_vs_LNNA SN_vs_SNNA
+setwd("D:/Documents/RNAseq_projects/")
 list.files()
 
 # Read count data
@@ -83,17 +83,14 @@ plotMD(object = et)#,main = "",xlab = "",ylab="")
 write.csv(as.data.frame(top_degs), file="edger_res.csv")
 
 #reading the edge results
-#setwd("D:/Documents/amarpal_singh/DEGA/DEF_P vs DEF_PK")
-setwd("D:/Documents/RNAseq_projects/RNAseq_shreya/DGEA/SNNA_vs_LNNA")  #LN_vs_LNNA SN_vs_SNNA
+setwd("D:/Documents/RNAseq_projects/") 
 
 edge_res <- read.csv("edger_res.csv", header = T, row.names = 1)
 dim(edge_res)
-#edge_res <- read.csv('D:/Documents/project/edger_res.csv',header =T, row.names =1)
+
 #filtering results 
 edge <- edge_res %>% filter(edge_res$PValue <= 0.05)
 edge_fdr <- edge_res %>% filter(edge_res$FDR <= 0.05)
-#edge <- top_degs %>% filter(top_degs$PValue < 0.05)
-#dim(edge)
 
 #segregating the genes based upon the log fold change and Pvalue
 edge_up <- edge %>% filter(edge$logFC >= 1)
@@ -127,7 +124,7 @@ write.csv(edge_down2,"FDR_down2.csv")
 
 ##################################################
 #extracting log transformed values for the DEGs
-setwd("D:/Documents/amarpal_singh/DEGA/DEF_P vs DEF_PK")
+setwd("D:/Documents/")
 
 log_counts <- read.csv("log_transformed_counts.csv",header = T, row.names = 1)
 
@@ -158,11 +155,8 @@ write.csv(down2, "down2_log2_counts.csv")
 ################ volcano plot #####################
 
 #labeling genes for giving color
-#setwd("D:/Documents/RNAseq_projects/RNAseq_shreya/DGEA/SNNA_vs_LNNA")  #LN_vs_LNNA SN_vs_SNNA
-df <- read.csv('D:/Documents/RNAseq_projects/RNAseq_shreya/DGEA/SN_vs_LN/edger_res.csv',
+df <- read.csv('D:/Documents/RNAseq_projects/edger_res.csv',
                header =T, row.names =1)
-
-#df <- read.csv('D:/Documents/amarpal_singh/DEGA/DEF_K vs DEF_PK/edger_res.csv',header =T, row.names =1)
 
 df$diffexpressed <- 'NO'
 df$diffexpressed[df$logFC > 2 & df$FDR <= 0.05] <- 'UP'
@@ -220,7 +214,7 @@ ggplot(data = df, aes(x = logFC, y = -log10(FDR),col = diffexpressed, label = de
 #setwd("D:/Documents/RNAseq_projects/RNAseq_shreya/DGEA/SNNA_vs_LNNA")  #LN_vs_LNNA SN_vs_SNNA
 
 #read log counts 
-setwd("D:/Documents/RNAseq_projects/RNAseq_shreya/DGEA/SN_vs_LN")
+setwd("D:/Documents/RNAseq_projects/SN_vs_LN")
 log_counts <- read.csv('log_transformed_counts.csv',header =T, row.names =1)
 head(log_counts)
 
