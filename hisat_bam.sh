@@ -2,12 +2,12 @@
 
 SECONDS=0
 #give the input and output directories
-in_dir="/home/angad/Vikash/rnaseq_analysis/fastp_QC"
-out_dir="/home/angad/Vikash/rnaseq_analysis/SAM_files"
-sum_dir="/home/angad/Vikash/rnaseq_analysis/SAM_files/fastp_sum" #summary of alignment
+in_dir="/home/rnaseq_analysis/fastp_QC"
+out_dir="/home/rnaseq_analysis/SAM_files"
+sum_dir="/home/rnaseq_analysis/SAM_files/fastp_sum" #summary of alignment
 
 #index of reference genome
-index="/home/angad/Vikash/rnaseq_analysis/genomes_oryza/oryza_indica_index/oryza_indica.toplevel.index"
+index="/home/rnaseq_analysis/genomes_oryza/oryza_indica_index/oryza_indica.toplevel.index"
 
 #specify the number of threads
 threads=32 # it can be changed based on the capability of system
