@@ -1,9 +1,9 @@
 
 #bin/bash
 #input and output directories 
-input_dir="/home/angad/Vikash/RNA-seq"
-output_dir="/home/angad/Vikash/rnaseq_analysis/fastp_QC"
-sum_out="/home/angad/Vikash/rnaseq_analysis/fastp_QC"
+input_dir="/home/RNA-seq"
+output_dir="/home/rnaseq_analysis/fastp_QC"
+sum_out="/home/rnaseq_analysis/fastp_QC"
 #threads=16
 #loop to read the forward files
 for f_file in "$input_dir"/*1_001.fastq.gz; do
